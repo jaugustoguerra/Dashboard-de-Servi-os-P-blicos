@@ -3,6 +3,39 @@ import sqlite3
 import pandas as pd
 import plotly.express as px
 
+# Função para atualizar o banco de dados
+def atualizar_banco_de_dados():
+    # Conectar ao banco de dados
+    conn = sqlite3.connect('servicos_publicos.db')
+    cursor = conn.cursor()
+    
+    # Exemplo de atualização: adicionar uma nova tabela ou atualizar dados existentes
+    # Aqui você pode adicionar o código necessário para atualizar seu banco de dados
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS novos_servicos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome TEXT,
+        contato TEXT,
+        gratuito TEXT,
+        nome_orgao TEXT,
+        palavras_chave TEXT,
+        etapas TEXT
+    )
+    ''')
+    
+    # Exemplo de inserção de dados (substitua pelo seu próprio código de atualização)
+    cursor.execute('''
+    INSERT INTO novos_servicos (nome, contato, gratuito, nome_orgao, palavras_chave, etapas)
+    VALUES ('Novo Serviço', 'contato@exemplo.com', 'Sim', 'Novo Órgão', 'palavra1, palavra2', 'etapa1, etapa2')
+    ''')
+    
+    # Salvar as alterações e fechar a conexão
+    conn.commit()
+    conn.close()
+
+# Chamar a função para atualizar o banco de dados
+atualizar_banco_de_dados()
+
 # Configuração da página
 st.set_page_config(page_title="Dashboard de Serviços Públicos", layout="wide")
 
