@@ -47,17 +47,21 @@ rows = cursor.fetchall()
 # Converter os dados para um DataFrame
 df = pd.DataFrame(rows, columns=["Nome do Serviço", "Contato", "Gratuito", "Nome do Orgão", "Palavras Chaves", "Etapas"])
 
-# Determinar os top 5 órgãos com mais serviços
-top_5_orgaos = df["Nome do Orgão"].value_counts().nlargest(5).index.tolist()
+# Contar o número de serviços por órgão
+contagem_orgaos = df["Nome do Orgão"].value_counts().reset_index()
+contagem_orgaos.columns = ["Nome do Orgão", "Contagem"]
+
+# Filtrar órgãos com mais de 100 serviços
+orgaos_mais_de_100 = contagem_orgaos[contagem_orgaos["Contagem"] > 100]["Nome do Orgão"].tolist()
 
 # Filtros na barra lateral
 st.sidebar.header("🔍 Filtros")
-orgao = st.sidebar.selectbox("Selecione o Órgão", ["Top 5"] + top_5_orgaos + list(df["Nome do Orgão"].unique()))
+orgao = st.sidebar.selectbox("Selecione o Órgão", ["Orgãos com 100 Serviços"] + orgaos_mais_de_100 + list(df["Nome do Orgão"].unique()))
 palavra_chave = st.sidebar.text_input("Palavras Chaves")
 
 # Aplicar filtros
-if orgao == "Top 5":
-    df_filtrado = df[df["Nome do Orgão"].isin(top_5_orgaos)]
+if orgao == "Orgãos com 100 Serviços":
+    df_filtrado = df[df["Nome do Orgão"].isin(orgaos_mais_de_100)]
 elif orgao:
     df_filtrado = df[df["Nome do Orgão"] == orgao]
 else:
