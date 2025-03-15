@@ -1,50 +1,126 @@
-# Dashboard de Serviços Públicos
 
-Este projeto é um dashboard interativo desenvolvido com Streamlit para visualizar e filtrar dados de serviços públicos armazenados em um banco de dados SQLite.
+# 📊 Dashboard de Serviços Públicos
 
-## Estrutura do Projeto
+Este projeto é um **dashboard interativo** desenvolvido em **Python** usando **Streamlit** e **SQLite**. Ele permite visualizar e analisar dados de serviços públicos obtidos de uma API, oferecendo filtros por órgão, palavras-chave e tipo (gratuito/pago), além de exibir gráficos e detalhes sobre os serviços selecionados.
 
-- `dashapigov.py`: Script principal que contém o código do dashboard.
-- `requirements.txt`: Arquivo com as dependências necessárias para rodar o projeto.
+---
+
+## 🚀 Como Executar o Projeto
+
+Siga os passos abaixo para configurar e executar o projeto localmente.
+
+### Pré-requisitos
+
+Antes de começar, verifique se você tem os seguintes itens instalados:
+
+- **Python 3.8 ou superior**
+- Bibliotecas Python:
+  - `streamlit`
+  - `pandas`
+  - `plotly`
+ 
+
+### Passos para Configuração
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/seu-usuario/dashboard-servicos-publicos.git
+   cd dashboard-servicos-publicos
+   ```
+
+2. **Crie um ambiente virtual** (opcional, mas recomendado):
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # No Windows: venv\Scripts\activate
+   ```
+
+3. **Instale as dependências:**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Configure o banco de dados:**
+
+   O projeto utiliza um banco de dados SQLite chamado `servicos_publicos.db`. Certifique-se de que o banco de dados esteja configurado corretamente e contenha a tabela `servicos` com os dados necessários.
+
+5. **Execute o dashboard:**
+
+   ```bash
+   streamlit run dashboard_servicos.py
+   ```
+
+6. **Acesse o dashboard:**
+
+   Abra seu navegador e acesse `http://localhost:8501` para visualizar o dashboard em funcionamento.
+
+---
+
+## 🛠️ Funcionalidades do Dashboard
+
+- **Filtros:**
+  - **Selecionar Órgão**: Filtra os serviços por órgão responsável. Inclui a opção "Mais de 100 Serviços" para exibir apenas órgãos com mais de 100 serviços.
+  - **Palavras-chave**: Filtra os serviços que contêm uma determinada palavra-chave.
+
+- **Visualizações:**
+  - **Tabela de Serviços Filtrados**: Exibe os serviços filtrados em uma tabela interativa.
+  - **Gráfico de Barras**: Mostra a distribuição de serviços gratuitos e pagos por órgão.
+  - **Detalhes do Serviço**: Exibe informações detalhadas sobre um serviço selecionado.
+
+- **Botão de Download:**
+  - **Baixar Dados Filtrados**: Permite baixar os dados filtrados em formato CSV.
+
+---
+
+## 🧩 Estrutura do Projeto
+
+- `dashboard_servicos.py`: Código principal do dashboard.
 - `servicos_publicos.db`: Banco de dados SQLite contendo os dados dos serviços públicos.
+- `README.md`: Documentação do projeto (este arquivo).
+- `requirements.txt`: Lista de dependências do projeto.
 
-## Instalação
+---
 
-1. Clone o repositório para sua máquina local.
-2. Crie um ambiente virtual (opcional, mas recomendado):
-    ```sh
-    python -m venv venv
-    source venv/bin/activate  # No Windows use `venv\Scripts\activate`
-    ```
-3. Instale as dependências:
-    ```sh
-    pip install -r requirements.txt
-    ```
+## 📊 Tecnologias Utilizadas
 
-## Uso
+- **Streamlit**: Framework para criar aplicações web interativas em Python.
+- **SQLite**: Banco de dados leve e embutido para armazenar os dados dos serviços.
+- **Pandas**: Biblioteca para manipulação e análise de dados.
+- **Plotly**: Biblioteca para criação de gráficos interativos.
 
-1. Execute o script `dashapigov.py`:
-    ```sh
-    streamlit run dashapigov.py
-    ```
-2. Acesse o dashboard no seu navegador através do endereço fornecido pelo Streamlit (geralmente `http://localhost:8501`).
+---
 
-## Funcionalidades
+## 📝 Como Contribuir
 
-- **Filtros na Barra Lateral**: Filtre os serviços por órgão e palavra-chave.
-- **Tabela de Dados**: Visualize os dados filtrados em uma tabela interativa.
-- **Gráficos Interativos**: Veja a distribuição dos serviços gratuitos vs. pagos e a proporção de serviços por órgão.
-- **Detalhes do Serviço**: Exiba detalhes específicos de um serviço selecionado.
-- **Download de Dados**: Baixe os dados filtrados em formato CSV.
+1. Faça um **fork** deste repositório.
+2. Crie uma **branch** para sua feature:
+   ```bash
+   git checkout -b feature/nova-feature
+   ```
+3. Faça **commit** das suas alterações:
+   ```bash
+   git commit -m 'Adiciona nova feature'
+   ```
+4. **Push** para a branch:
+   ```bash
+   git push origin feature/nova-feature
+   ```
+5. Abra um **Pull Request**.
 
-## Personalização
+---
 
-Você pode personalizar o estilo do dashboard editando o bloco de código CSS no início do arquivo `dashapigov.py`.
+## 📄 Licença
 
-## Contribuição
+Este projeto está licenciado sob a licença **MIT**. Consulte o arquivo `LICENSE` para mais detalhes.
 
-Sinta-se à vontade para abrir issues e pull requests para melhorias e correções.
+---
 
-## Licença
+## 🤝 Contato
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+Se você tiver dúvidas ou sugestões, sinta-se à vontade para entrar em contato:
+
+- **Nome**: José Augusto Guerra
+- **E-mail**: [auguscontas@gmail.com]
+- **GitHub**: [jaugustoguerra](https://github.com/jaugustoguerra)
