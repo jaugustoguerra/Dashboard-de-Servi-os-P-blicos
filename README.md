@@ -49,7 +49,7 @@ Antes de começar, verifique se você tem os seguintes itens instalados:
 5. **Execute o dashboard:**
 
    ```bash
-   streamlit run dashboard_servicos.py
+   streamlit run dashapigov.py
    ```
 
 6. **Acesse o dashboard:**
@@ -76,7 +76,7 @@ Antes de começar, verifique se você tem os seguintes itens instalados:
 
 ## 🧩 Estrutura do Projeto
 
-- `dashboard_servicos.py`: Código principal do dashboard.
+- `dashapigov.py`: Código principal do dashboard.
 - `servicos_publicos.db`: Banco de dados SQLite contendo os dados dos serviços públicos.
 - `README.md`: Documentação do projeto (este arquivo).
 - `requirements.txt`: Lista de dependências do projeto.
