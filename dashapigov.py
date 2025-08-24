@@ -89,11 +89,11 @@ orgaos_mais_de_100 = contagem_orgaos[contagem_orgaos["Contagem"] > 100]["Nome do
 
 # Filtros na barra lateral
 st.sidebar.header("🔍 Filtros")
-orgao = st.sidebar.selectbox("Selecione o Órgão", ["Orgãos com 100 Serviços"] + orgaos_mais_de_100 + list(df["Nome do Orgão"].unique()))
+orgao = st.sidebar.selectbox("Selecione o Órgão", ["Orgãos com +100 de Serviços"] + orgaos_mais_de_100 + list(df["Nome do Orgão"].unique()))
 palavra_chave = st.sidebar.text_input("Palavras Chaves")
 
 # Aplicar filtros
-if orgao == "Orgãos com 100 Serviços":
+if orgao == "Orgãos com +100 de Serviços":
     df_filtrado = df[df["Nome do Orgão"].isin(orgaos_mais_de_100)]
 elif orgao:
     df_filtrado = df[df["Nome do Orgão"] == orgao]
